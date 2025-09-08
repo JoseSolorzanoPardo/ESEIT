@@ -1,0 +1,18 @@
+<h2>Gestores de Bases de Datos Utilizados:</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Licencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let gestor of gestores">
+      <td>{{ gestor.nombre }}</td>
+      <td>{{ gestor.tipo }}</td>
+      <td>{{ gestor.licencia }}</td>
+    </tr>
+  </tbody>
+</table>
