@@ -1,0 +1,60 @@
+/*  Estilo general de la página */
+body {
+  font-family: Arial, sans-serif;   /* Define la tipografía principal */
+  margin: 0;                        /* Elimina márgenes por defecto del navegador */
+  padding: 0;                       /* Elimina relleno por defecto */
+  background-color: #f4f4f4;        /* Asigna un color gris claro de fondo */
+}
+
+/*  Estilos para el encabezado */
+header {
+  position: fixed;        /*  Fija el header en un lugar */
+  top: 0;                 /* Lo pega a la parte superior */
+  left: 0;                /* Lo alinea al borde izquierdo */
+  width: 100%;            /* Ocupa todo el ancho de la ventana */
+  background-color: #333; /* Fondo gris oscuro */
+  color: white;           /* Texto en blanco */
+  padding: 15px;          /* Espaciado interno */
+  text-align: center;     /* Centra el contenido */
+  z-index: 1000;          /* Evita que otros elementos lo tapen */
+}
+
+/*  Estilo para los enlaces dentro de la navegación */
+nav a {
+  color: #fff;                      /* Texto de los enlaces en blanco */
+  margin: 0 10px;                   /* Espaciado horizontal entre enlaces */
+  text-decoration: none;            /* Elimina el subrayado por defecto */
+}
+
+/*  Efecto al pasar el ratón sobre los enlaces */
+nav a:hover {
+  text-decoration: underline;       /* Subraya el enlace al pasar el mouse */
+}
+
+/*  Estilos para el área principal del contenido */
+main {
+  padding: 20px;
+  margin-top: 100px; /*  Ajusta según la altura real del header */
+}
+
+/*  Estilo para los subtítulos */
+h2 {
+  color: #333;                      /* Color gris oscuro para diferenciar títulos */
+}
+
+/*  Estilo para imágenes */
+img {
+  border-radius: 10px;              /* Redondea las esquinas de las imágenes */
+}
+
+/*  Estilo para el pie de página */
+footer {
+  position: none;  
+  bottom: 0;         /* Lo pega al borde inferior */
+  left: 0;           /* Lo alinea al borde izquierdo */
+  width: 100%;       /* Ocupa todo el ancho de la página */
+  background: #222;  /* Color de fondo */
+  color: white;      /* Texto en blanco */
+  text-align: center;
+  padding: 10px;
+}
