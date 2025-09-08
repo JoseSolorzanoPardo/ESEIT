@@ -1,0 +1,21 @@
+/* ===== Estilos generales para la tabla ===== */
+table {
+  width: 100%;              /* La tabla ocupa el 100% del ancho disponible */
+  border-collapse: collapse;/* Colapsa los bordes (celdas comparten el mismo borde) */
+  margin-top: 15px;         /* Espacio superior entre la tabla y el contenido anterior */
+}
+
+/* ===== Estilos para las celdas de cabecera (th) ===== */
+th {
+  background-color: #333;   /* Fondo gris oscuro */
+  color: white;             /* Texto en blanco */
+  text-align: left;         /* Alineación del texto a la izquierda */
+}
+
+/* ===== Estilos compartidos para celdas de datos (td) y cabecera (th) ===== */
+td, th {
+  padding: 10px;            /* Espacio interno alrededor del texto dentro de cada celda */
+  border: 1px solid #ccc;   /* Bordes finos de color gris claro en cada celda */
+}
+
+
