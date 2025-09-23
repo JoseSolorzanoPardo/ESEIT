@@ -42,7 +42,7 @@ En la clase Main, se debe:
 
 /*
 =========================================================
-   📌 Ejercicio: Sistema de Empleados en una Empresa
+ Ejercicio: Sistema de Empleados en una Empresa
 =========================================================
 Este código ejemplifica cómo modelar empleados usando:
 - Herencia
