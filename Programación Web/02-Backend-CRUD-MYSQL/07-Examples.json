@@ -1,0 +1,47 @@
+[
+  {
+    "nombre": "Miguel",
+    "apellido": "Ramírez",
+    "email": "miguel.ramirez@ucompensar.edu.co",
+    "edad": 23,
+    "fechaNacimiento": "2002-03-14",
+    "telefono": "+57-3014567890",
+    "carrera": "Ingeniería Electrónica"
+  },
+  {
+    "nombre": "Sofía",
+    "apellido": "Martínez",
+    "email": "sofia.martinez@ucompensar.edu.co",
+    "edad": 19,
+    "fechaNacimiento": "2006-11-25",
+    "telefono": "+57-3226789012",
+    "carrera": "Psicología"
+  },
+  {
+    "nombre": "Andrés",
+    "apellido": "López",
+    "email": "andres.lopez@ucompensar.edu.co",
+    "edad": 24,
+    "fechaNacimiento": "2001-07-08",
+    "telefono": "+57-3001239876",
+    "carrera": "Arquitectura"
+  },
+  {
+    "nombre": "Valentina",
+    "apellido": "Castro",
+    "email": "valentina.castro@ucompensar.edu.co",
+    "edad": 22,
+    "fechaNacimiento": "2003-02-18",
+    "telefono": "+57-3138765432",
+    "carrera": "Contaduría Pública"
+  },
+  {
+    "nombre": "Julián",
+    "apellido": "Hernández",
+    "email": "julian.hernandez@ucompensar.edu.co",
+    "edad": 20,
+    "fechaNacimiento": "2005-09-10",
+    "telefono": "+57-3157896541",
+    "carrera": "Ingeniería de Sistemas"
+  }
+]
