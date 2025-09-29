@@ -1,0 +1,5 @@
+Spring Web
+Spring Data JPA
+MySQL Driver
+Spring Boot DevTools (opcional)
+Lombok (opcional, para reducir boilerplate)
