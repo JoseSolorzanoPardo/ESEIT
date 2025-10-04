@@ -1,74 +1,81 @@
 /*
- * Clase de servicio que contiene la lógica de negocio relacionada con la entidad Usuario.
- * Forma parte de la arquitectura de capas en Spring Boot:
- * - Controller: recibe las peticiones HTTP.
- * - Service: maneja la lógica de negocio.
- * - Repository: interactúa con la base de datos (MongoDB en este caso).
+ * Clase de pruebas unitarias para la lógica del servicio UsuarioService.
+ * Estas pruebas NO usan base de datos ni Spring, solo verifican la lógica de métodos internos.
+ * 
+ * Tecnologías usadas:
+ * - JUnit 5 (@Test, assertTrue, assertFalse, assertEquals, assertThrows).
+ * 
+ * Objetivo:
+ * - Probar la validez de correos electrónicos con distintas condiciones.
+ * - Probar el cálculo de la longitud del nombre con y sin espacios.
+ * - Verificar el lanzamiento de excepciones en casos inválidos.
  */
-package com.ADSistemas2025.ADSistemas2025.Service;
+package com.ADSistemas2025.ADSistemas2025;
 
-import com.ADSistemas2025.ADSistemas2025.Model.Usuario;
-import com.ADSistemas2025.ADSistemas2025.Repository.UsuarioRepository;
-import java.util.List;
-import org.springframework.stereotype.Service;
+import com.ADSistemas2025.ADSistemas2025.Service.UsuarioService;
+import static org.junit.jupiter.api.Assertions.*; // Importa las aserciones de JUnit
+import org.junit.jupiter.api.Test;
 
-@Service  // Indica a Spring que esta clase es un "Service" (Bean gestionado)
-public class UsuarioService {
+/**
+ * Clase de pruebas unitarias para UsuarioService.
+ * Autor: Jose Hember
+ */
+public class UsuarioServiceLogicaTest {
+    
+    // Instanciamos el servicio. Pasamos "null" porque no usamos el repositorio en estas pruebas.
+    private final UsuarioService service = new UsuarioService(null); 
+    
+    // -------------------------------
+    // PRUEBAS DEL MÉTODO emailEsValido
+    // -------------------------------
 
-    // Dependencia al repositorio que maneja el acceso a MongoDB
-    private final UsuarioRepository repo;
+    @Test
+    public void testEmailEsValido_Correcto() {
+        // Caso positivo: email válido
+        assertTrue(service.emailEsValido("juan@example.com"));
+    }
+    
+    @Test
+    public void testEmailEsValido_SinArroba() {
+        // Caso negativo: falta el carácter "@"
+        assertFalse(service.emailEsValido("juanexample.com"));
+    }
+    
+    @Test
+    public void testEmailEsValido_Null() {
+        // Caso negativo: email nulo
+        assertFalse(service.emailEsValido(null));
+    }
+    
+    @Test
+    public void testEmailEsValido_NoTerminaEnCom() {
+        // Caso negativo: email válido en estructura, pero dominio incorrecto
+        assertFalse(service.emailEsValido("juan@example.org"));
+    }
+   
+    // -------------------------------
+    // PRUEBAS DEL MÉTODO calcularLongitudNombre
+    // -------------------------------
 
-    // Constructor con inyección de dependencias.
-    // Spring se encarga de proveer automáticamente una implementación de UsuarioRepository.
-    public UsuarioService(UsuarioRepository repo) {
-        this.repo = repo;
+    @Test
+    public void testCalcularLongitudNombre_Correcto() {
+        // Caso positivo: nombre normal
+        int longitud = service.calcularLongitudNombre("Ana");
+        assertEquals(3, longitud); // "Ana" tiene 3 caracteres
     }
 
-    /*
-     * Método que retorna todos los usuarios almacenados en la colección "usuarios".
-     * Internamente invoca el método findAll() que provee Spring Data MongoDB.
-     */
-    public List<Usuario> listarTodos() {
-        return repo.findAll();
+    @Test
+    void testCalcularLongitudNombre_ConEspacios() {
+        // Caso positivo: nombre con espacios extra
+        int longitud = service.calcularLongitudNombre("  Pedro   ");
+        assertEquals(5, longitud); // trim() elimina espacios → "Pedro"
     }
 
-    /*
-     * Guarda un nuevo usuario o actualiza uno existente en la base de datos.
-     * Si el objeto "usuario" no tiene ID, lo inserta.
-     * Si ya existe un ID, hace update.
-     */
-    public Usuario guardar(Usuario usuario) {
-        return repo.save(usuario);
+    @Test
+    void testCalcularLongitudNombre_NullDebeLanzarExcepcion() {
+        // Caso negativo: nombre nulo → se espera excepción
+        assertThrows(IllegalArgumentException.class,
+            () -> service.calcularLongitudNombre(null));
     }
-
-    /*
-     * Elimina un usuario de la base de datos usando su ID.
-     * Si el ID no existe, no lanza error, simplemente no hace nada.
-     */
-    public void eliminar(String id) {
-        repo.deleteById(id);
-    }
-
-    /*
-     * Busca un usuario por su ID en la base de datos.
-     * - Si lo encuentra, retorna el objeto Usuario.
-     * - Si no lo encuentra, retorna null (usamos orElse(null)).
-     */
-    public Usuario buscarPorId(String id) {
-        return repo.findById(id).orElse(null);
-    }
-
-    /*
-     * Método de lógica interna que valida si un email es correcto bajo una regla sencilla:
-     * - No debe ser nulo.
-     * - Debe contener el símbolo "@".
-     * - Debe terminar en ".com".
-     * (Nota: en proyectos reales usaríamos validaciones más completas con regex).
-     */
-    public boolean emailEsValido(String email) {
-        return email != null && email.contains("@") && email.endsWith(".com");
-    }
-
-    /*
-     * Método de lógica interna que calcula la longitud del nombre:
-     * - Si el nombre es nu*
+    
+}
