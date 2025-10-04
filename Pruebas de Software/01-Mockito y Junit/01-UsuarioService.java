@@ -1,3 +1,22 @@
+
+// Dentro de UsuarioController.java
+
+@GetMapping("/{id}")
+public ResponseEntity<Usuario> obtenerPorId(@PathVariable String id) {
+    // Llamamos al servicio para buscar el usuario
+    Usuario usuario = service.buscarPorId(id);
+
+    // Si el usuario existe, respondemos con 200 OK y el objeto en JSON
+    if (usuario != null) {
+        return ResponseEntity.ok(usuario);
+    } else {
+        // Si no existe, respondemos con 404 Not Found (sin cuerpo)
+        return ResponseEntity.notFound().build();
+    }
+}
+
+
+
 /*
  * Clase de servicio que contiene la lógica de negocio relacionada con la entidad Usuario.
  * Forma parte de la arquitectura de capas en Spring Boot:
