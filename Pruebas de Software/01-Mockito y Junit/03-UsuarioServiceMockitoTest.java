@@ -1,4 +1,53 @@
 /*
+ * ----------------------------------------------------------------------------
+ * ¿QUÉ ES MOCKITO?
+ * ----------------------------------------------------------------------------
+ * 
+ * Mockito es un framework de Java que permite crear "mocks", es decir,
+ * OBJETOS SIMULADOS que imitan el comportamiento de dependencias reales.
+ * 
+ * Su objetivo principal es AISLAR la clase que se está probando (por ejemplo,
+ * un servicio) de otras partes del sistema que no queremos ejecutar en la prueba,
+ * como:
+ *     - Repositorios (bases de datos reales)
+ *     - APIs externas
+ *     - Servicios de terceros
+ * 
+ * En lugar de conectarse a una base de datos o ejecutar código real,
+ * Mockito crea un OBJETO FALSO que responde exactamente lo que nosotros le indiquemos.
+ * 
+ * ----------------------------------------------------------------------------
+ * BENEFICIOS PRINCIPALES:
+ * ----------------------------------------------------------------------------
+ * 1. Las pruebas unitarias son más rápidas (no hay conexión a BD).
+ * 2. No dependemos de servicios externos ni datos reales.
+ * 3. Podemos controlar completamente las respuestas (simular errores, listas vacías, etc.).
+ * 4. Podemos verificar si un método fue llamado, cuántas veces y con qué parámetros.
+ * 
+ * ----------------------------------------------------------------------------
+ * SINTAXIS BÁSICA:
+ * ----------------------------------------------------------------------------
+ * // 1. Crear el mock:
+ * UsuarioRepository repo = Mockito.mock(UsuarioRepository.class);
+ * 
+ * // 2. Definir comportamiento del mock (qué debe devolver):
+ * when(repo.findAll()).thenReturn(listaUsuarios);
+ * 
+ * // 3. Ejecutar el método que usa el mock:
+ * UsuarioService service = new UsuarioService(repo);
+ * service.listarTodos();
+ * 
+ * // 4. Verificar interacciones:
+ * verify(repo, times(1)).findAll();
+ * 
+ * ----------------------------------------------------------------------------
+ * Mockito actúa como un "doble de prueba" o "actor suplente" que reemplaza 
+ * al objeto real en un escenario controlado, permitiendo probar la lógica 
+ * de una clase sin depender de factores externos.
+ * ----------------------------------------------------------------------------
+ */
+
+/*
  * Clase de pruebas unitarias con Mockito para UsuarioService.
  * 
  * Objetivo:
