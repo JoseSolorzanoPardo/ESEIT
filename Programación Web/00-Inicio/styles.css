@@ -1,34 +1,34 @@
 /*  Estilo general de la página */
 body {
-  font-family: Arial, sans-serif;   /* Define la tipografía principal */
-  margin: 0;                        /* Elimina márgenes por defecto del navegador */
-  padding: 0;                       /* Elimina relleno por defecto */
-  background-color: #f4f4f4;        /* Asigna un color gris claro de fondo */
+  font-family: Arial, sans-serif; /* Define la tipografía principal */
+  margin: 0; /* Elimina márgenes por defecto del navegador */
+  padding: 0; /* Elimina relleno por defecto */
+  background-color: #f4f4f4; /* Asigna un color gris claro de fondo */
 }
 
 /*  Estilos para el encabezado */
 header {
-  position: fixed;        /*  Fija el header en un lugar */
-  top: 0;                 /* Lo pega a la parte superior */
-  left: 0;                /* Lo alinea al borde izquierdo */
-  width: 100%;            /* Ocupa todo el ancho de la ventana */
+  position: fixed; /*  Fija el header en un lugar */
+  top: 0; /* Lo pega a la parte superior */
+  left: 0; /* Lo alinea al borde izquierdo */
+  width: 100%; /* Ocupa todo el ancho de la ventana */
   background-color: #333; /* Fondo gris oscuro */
-  color: white;           /* Texto en blanco */
-  padding: 15px;          /* Espaciado interno */
-  text-align: center;     /* Centra el contenido */
-  z-index: 1000;          /* Evita que otros elementos lo tapen */
+  color: white; /* Texto en blanco */
+  padding: 15px; /* Espaciado interno */
+  text-align: center; /* Centra el contenido */
+  z-index: 1000; /* Evita que otros elementos lo tapen */
 }
 
 /*  Estilo para los enlaces dentro de la navegación */
 nav a {
-  color: #fff;                      /* Texto de los enlaces en blanco */
-  margin: 0 10px;                   /* Espaciado horizontal entre enlaces */
-  text-decoration: none;            /* Elimina el subrayado por defecto */
+  color: #fff; /* Texto de los enlaces en blanco */
+  margin: 0 10px; /* Espaciado horizontal entre enlaces */
+  text-decoration: none; /* Elimina el subrayado por defecto */
 }
 
 /*  Efecto al pasar el ratón sobre los enlaces */
 nav a:hover {
-  text-decoration: underline;       /* Subraya el enlace al pasar el mouse */
+  text-decoration: underline; /* Subraya el enlace al pasar el mouse */
 }
 
 /*  Estilos para el área principal del contenido */
@@ -39,22 +39,74 @@ main {
 
 /*  Estilo para los subtítulos */
 h2 {
-  color: #333;                      /* Color gris oscuro para diferenciar títulos */
+  color: #333; /* Color gris oscuro para diferenciar títulos */
 }
 
 /*  Estilo para imágenes */
 img {
-  border-radius: 10px;              /* Redondea las esquinas de las imágenes */
+  border-radius: 10px; /* Redondea las esquinas de las imágenes */
 }
 
 /*  Estilo para el pie de página */
 footer {
-  position: none;  
-  bottom: 0;         /* Lo pega al borde inferior */
-  left: 0;           /* Lo alinea al borde izquierdo */
-  width: 100%;       /* Ocupa todo el ancho de la página */
-  background: #222;  /* Color de fondo */
-  color: white;      /* Texto en blanco */
+  position: none;
+  bottom: 0; /* Lo pega al borde inferior */
+  left: 0; /* Lo alinea al borde izquierdo */
+  width: 100%; /* Ocupa todo el ancho de la página */
+  background: #222; /* Color de fondo */
+  color: white; /* Texto en blanco */
   text-align: center;
   padding: 10px;
+}
+
+#formulario {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  background-color: #ffffff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 800px;
+}
+
+#formulario h2 {
+  text-align: center;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 15px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
